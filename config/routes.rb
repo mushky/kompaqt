@@ -1,7 +1,7 @@
 Kompaqt::Application.routes.draw do
   resources :pics do
   	member do
-      get :vote_up
+      post :vote_up
     end
   end
 

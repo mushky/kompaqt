@@ -1,3 +1,4 @@
+<h3>The Number One Resource for Make-Up Tutorials</h3>
 <% @pics.each do |pic| %>
   <%= image_tag pic.image.url(:medium) %>
   <br>
@@ -6,7 +7,7 @@
     <%= link_to 'Show', pic_path(pic) %>
     <br>
     <br>
-    <%= link_to 'Upvote Picture!', vote_up_pic_path(pic) , class: "btn btn-primary btn-large" %>
+    <%= link_to 'Upvote Picture!', vote_up_pic_path(pic), :remote => true, :method => :post, class: "btn btn-primary btn-large" %>
       <% if pic.user == current_user %>
         <%= link_to 'Edit', edit_pic_path(pic) %>
         <%= link_to 'Destroy', pic, method: :delete, data: { confirm: 'Are you sure?' } %>

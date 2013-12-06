@@ -12,9 +12,15 @@ gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass', branch: '3'
 gem 'devise', '~> 3.1.1'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'thumbs_up'
-
-#Allow heroku to upload images through amazon s3 server
+# Allow for attr_accessor in Models while using Devise Gem in Rails 4.0 due to Strong Parameters
+gem 'protected_attributes'
+# Allow heroku to upload images through amazon s3 server
 gem 'aws-sdk', '~> 1.20.0' 
+# Rails Forem Dependencies
+gem 'forem', :github => "radar/forem", :branch => "rails4"
+gem 'friendly_id', github: "FriendlyId/friendly_id"
+gem 'cancan', git: "https://github.com/nukturnal/cancan.git"
+gem "will_paginate", '3.0.4'
 
 group :doc do
   gem 'sdoc', require: false
