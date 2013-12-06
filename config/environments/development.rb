@@ -27,6 +27,8 @@ Kompaqt::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 
-  # Devise Configuration
+  # Devise Gem Configuration
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  # Paperclip Gem Configuration
+  Paperclip.options[:command_path] = "/usr/local/bin/"
 end

@@ -1,29 +1,19 @@
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @pics.each do |pic| %>
-      <tr>
-        <td><%= pic.description %></td>
-        <td><%= pic.user.email if pic.user %></td>
-        <% if pic.user == current_user %>
-        <td><%= link_to 'Show', pic %></td>
-        <td><%= link_to 'Edit', edit_pic_path(pic) %></td>
-        <td><%= link_to 'Destroy', pic, method: :delete, data: { confirm: 'Sure about that?' } %></td>
-        <% end %>
-      </tr>
+<% @pics.each do |pic| %>
+  <%= image_tag pic.image.url(:medium) %>
+  <br>
+    <%= pic.description %>
+    <%= pic.user.email if pic.user %>
+    <%= link_to 'Show', pic_path(pic) %>
+    <br>
+    <br>
+    <%= link_to 'Upvote Picture!', vote_up_pic_path(pic) , class: "btn btn-primary btn-large" %>
+      <% if pic.user == current_user %>
+        <%= link_to 'Edit', edit_pic_path(pic) %>
+        <%= link_to 'Destroy', pic, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
     <% end %>
-  </tbody>
-</table>
-
+<br>
 <br>
 <% if user_signed_in? %>
-  <%= link_to 'New Pic', new_pic_path %>
+  <%= link_to 'Upload Picture', new_pic_path %>
 <% end %>

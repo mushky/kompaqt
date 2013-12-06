@@ -1,5 +1,8 @@
-$navbar-inverse-bg: #8e44ad;
-$navbar-inverse-link-color: white;
+$font-family-monospace: helvetica;
+$navbar-brand: black;
+$navbar-inverse-bg: white;
+$navbar-inverse-link-color: black;
+$navbar-inverse-link-hover-color: #8e44ad;
 $jumbotron-bg: #ecf0f1;
 $brand-primary: #8e44ad;
 $navbar-height: 35px;
@@ -13,6 +16,3 @@ $navbar-height: 35px;
 	font-weight: bold;
 }
 
-body {
-	background: url(~/images/background.png) no-repeat;
-}

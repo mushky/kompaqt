@@ -1,5 +1,9 @@
 Kompaqt::Application.routes.draw do
-  resources :pics
+  resources :pics do
+  	member do
+      get :vote_up
+    end
+  end
 
   devise_for :users
   root "pics#index"

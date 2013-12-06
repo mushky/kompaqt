@@ -20,7 +20,7 @@ class PicsController < ApplicationController
   def create
     @pic = Pic.new(pic_params)
     if @pic.save
-      redirect_to @pin, notice: "Picture was succesfully uploaded!"
+      redirect_to @pic, notice: "Picture was succesfully uploaded!"
     else
       render action: 'new'
     end
@@ -39,6 +39,14 @@ class PicsController < ApplicationController
     redirect_to pics_url
   end
 
+  def vote_up
+    begin
+      current_user.vote_for(@pic = Pic.find(params[:id]))
+      render :nothing => true, :status => 200
+    rescue ActiveRecord::RecordInvalid
+      render :nothing => true, :status => 404
+    end
+  end
 
   private
     def set_pic
@@ -51,6 +59,6 @@ class PicsController < ApplicationController
     end
 
     def pic_params
-      params.require(:pic).permit(:description)
+      params.require(:pic).permit(:description, :image)
     end
 end

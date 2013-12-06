@@ -1,11 +1,17 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @pic.description %>
-</p>
-
-<% if @pic.user == current_user %>
-<%= link_to 'Edit', edit_pic_path(@pic) %> |
-<% end %>
-<%= link_to 'Back', pics_path %>
+<div class="row">
+  <div class="span6 offset3">
+    <div class="well">
+      <%= image_tag @pic.image %>
+        <p>
+          <%= @pic.description %>
+        </p>
+        <p>
+          <%= @pic.user.name %>
+        </p>
+          <% if current_user == @pic.user %>
+            <%= link_to 'Edit', edit_pic_path(@pic) %> |
+          <% end %>
+          <%= link_to 'Back', pics_path %>
+        </div>
+    </div>
+</div>
