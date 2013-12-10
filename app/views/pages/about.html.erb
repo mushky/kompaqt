@@ -1,2 +1,13 @@
-<h1>About Us</h1>
-<p>About Us? Kompaqt is an easy way to share make up tips and tutorials</p>
+<% provide(:title, 'About') %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kompaqt | <%= yield(:title) %></title>
+  </head>
+  <body>
+    <h1>About Us</h1>
+    <p>
+       About Us? We're the number 1 resource for make-up tutorials on the web!
+    </p>
+  </body>
+</html>
