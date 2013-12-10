@@ -20,6 +20,7 @@ class PicsController < ApplicationController
   def create
     @pic = Pic.new(pic_params)
     if @pic.save
+      Resque.enqueue(NewPic, @pic.id)
       redirect_to @pic, notice: "Picture was succesfully uploaded!"
     else
       render action: 'new'

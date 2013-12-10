@@ -9,4 +9,5 @@ Kompaqt::Application.routes.draw do
   root "pics#index"
   get "about" => "pages#about"
   get "contact" => "pages#contact"
+  mount Resque::Server, :at => "/resque"
 end

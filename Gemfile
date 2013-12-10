@@ -21,6 +21,8 @@ gem 'forem', :github => "radar/forem", :branch => "rails4"
 gem 'friendly_id', github: "FriendlyId/friendly_id"
 gem 'cancan', git: "https://github.com/nukturnal/cancan.git"
 gem "will_paginate", '3.0.4'
+# Worker Tests
+gem "resque", :require => "resque/server"
 
 group :doc do
   gem 'sdoc', require: false
@@ -28,9 +30,11 @@ end
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'rspec-rails', '2.13.1'
 end
 
 group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
+
